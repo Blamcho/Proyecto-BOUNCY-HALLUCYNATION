@@ -1,15 +1,15 @@
 using UnityEngine;
 using System.Collections;
 
-public class PowerUpJump : MonoBehaviour
+public class PowerUpVelocity : MonoBehaviour
 {
-    [SerializeField] private float _jumpStrength = 10;
+    [SerializeField] private float _velocity = 10;
     [SerializeField] private float _resetTime = 2;
     [SerializeField] private GameObject _powerUpVisuals = null;
     [SerializeField] private Collider _collider = null;
 
-    private JumpController _jumpController = null;
-    private float _previousJumpStrength = default;
+    private MoveController _moveController = null;
+    private float _previousVelocity = default;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,9 +18,9 @@ public class PowerUpJump : MonoBehaviour
         _collider.enabled = false;
         _powerUpVisuals.SetActive(false);
 
-        _jumpController = other.gameObject.GetComponent<JumpController>();
-        _previousJumpStrength = _jumpController.JumpStrength;
-        _jumpController.ChangeJumpStrength(_jumpStrength);
+        _moveController = other.gameObject.GetComponent<MoveController>();
+        _previousVelocity = _moveController.Velocity;
+        _moveController.ChangeVelocity(_velocity);
 
         StartCoroutine(ResetPowerUp());
     }
@@ -28,7 +28,7 @@ public class PowerUpJump : MonoBehaviour
     private IEnumerator ResetPowerUp()
     {
         yield return new WaitForSeconds(_resetTime);
-        _jumpController.ChangeJumpStrength(_previousJumpStrength);
+        _moveController.ChangeVelocity(_previousVelocity);
 
         Destroy(gameObject);
     }

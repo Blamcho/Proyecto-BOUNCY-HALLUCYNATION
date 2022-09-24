@@ -1,48 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class movecontroller : MonoBehaviour
+public class MoveController : MonoBehaviour
 {
+    [SerializeField] private float _velocity = 10f;
 
-    public float velociti = 10f;
-    public float speed = 5f;
-    public GameObject Box;
-    public GameObject Box2;
-    public movecontroller move;
-    public Jump jump;    
-    public int tipe;
+    public float Velocity => _velocity;
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.A))
-
         {
-            transform.position += Vector3.back * velociti * Time.deltaTime;
-
+            transform.position += Vector3.back * _velocity * Time.deltaTime;
         }
+
         if (Input.GetKey(KeyCode.D))
-
         {
-            transform.position += Vector3.forward * velociti * Time.deltaTime;
-
+            transform.position += Vector3.forward * _velocity * Time.deltaTime;
         }
-
     }
-    private void OnTriggerEnter(Collider other)
+
+    public void ChangeVelocity(float newVelocity)
     {
-        other.GetComponent<powerupsvelocidad>().Efect();
-        Destroy(Box);
-
-        other.GetComponent<powerupsvelocidad>().Efect();
-        Destroy(Box2);
+        _velocity = newVelocity;
     }
-
 }
-
- 
-
-
-
-
