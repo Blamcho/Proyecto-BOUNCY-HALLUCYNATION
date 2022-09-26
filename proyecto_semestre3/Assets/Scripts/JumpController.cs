@@ -12,12 +12,11 @@ public class JumpController : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded == true)
+        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
         {
             Jump();
         }
