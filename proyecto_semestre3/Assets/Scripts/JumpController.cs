@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class JumpController : MonoBehaviour
 {
-    [SerializeField] private float _jumpStrength = 0.4f;
+    
     [SerializeField] private Rigidbody _rigidbody = null;
     [SerializeField] private float _thrust = 10f;
     [SerializeField] private bool _isGrounded = true;
+    public float JumpStrength => _thrust;
 
-    public float JumpStrength => _jumpStrength;
 
     void Start()
     {
@@ -38,6 +38,6 @@ public class JumpController : MonoBehaviour
 
     public void ChangeJumpStrength(float newStrength)
     {
-        _jumpStrength = newStrength;
+        _thrust = newStrength;
     }
 }

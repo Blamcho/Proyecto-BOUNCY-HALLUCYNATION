@@ -3,9 +3,9 @@ using System.Collections;
 
 public class PowerUpJump : MonoBehaviour
 {
-    [SerializeField] private float _jumpStrength = 10;
-    [SerializeField] private float _resetTime = 2;
-    [SerializeField] private GameObject _powerUpVisuals = null;
+    [SerializeField] private float _thrust = 20;
+    [SerializeField] private float _resetTime = 5;
+    [SerializeField] private MeshRenderer _powerUpVisuals = null;
     [SerializeField] private Collider _collider = null;
 
     private JumpController _jumpController = null;
@@ -15,21 +15,24 @@ public class PowerUpJump : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        _collider.enabled = false;
-        _powerUpVisuals.SetActive(false);
+        _collider.enabled = false;//Desactiva solamente el MeshRender
+        _powerUpVisuals.enabled = false; 
 
         _jumpController = other.gameObject.GetComponent<JumpController>();
         _previousJumpStrength = _jumpController.JumpStrength;
-        _jumpController.ChangeJumpStrength(_jumpStrength);
+        _jumpController.ChangeJumpStrength(_thrust);
 
         StartCoroutine(ResetPowerUp());
     }
 
     private IEnumerator ResetPowerUp()
     {
-        yield return new WaitForSeconds(_resetTime);
-        _jumpController.ChangeJumpStrength(_previousJumpStrength);
+        while (true) //Poner siclo while 
+        {
+            yield return new WaitForSeconds(_resetTime);
+            _jumpController.ChangeJumpStrength(_previousJumpStrength);
+        }
 
-        Destroy(gameObject);
+       
     }
 }
