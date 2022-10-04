@@ -6,14 +6,13 @@ using UnityEngine.SceneManagement;
 public class SceneManager : MonoBehaviour
 
 {
-    public SceneManager LoadScene;
-    // Start is called before the first frame update
+    [SerializeField] private SceneManager _LoadScene;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         
@@ -21,8 +20,6 @@ public class SceneManager : MonoBehaviour
 
     public void Sceneplay()
     {
-
        // SceneManager.LoadScene("play");
-
     }
 }
