@@ -1128,6 +1128,19 @@ Rigidbody:
   m_CorrespondingSourceObject: {fileID: 7853081358925215980, guid: 04ce96a9a26798543bba561db0ee9abc, type: 3}
   m_PrefabInstance: {fileID: 7853081357469805505}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1455444788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455444774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2f11e92333c57d4eb7989cfcb014b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _velocity: 10
 --- !u!1 &2096879700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1411,6 +1424,7 @@ PrefabInstance:
       propertyPath: _rigidbody
       value: 
       objectReference: {fileID: 1455444781}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7853081358925215974, guid: 04ce96a9a26798543bba561db0ee9abc, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 04ce96a9a26798543bba561db0ee9abc, type: 3}
