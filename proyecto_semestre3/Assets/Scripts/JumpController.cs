@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class JumpController : MonoBehaviour
 {
     
@@ -17,6 +17,14 @@ public class JumpController : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
+        {
+            Jump();
+        }
+    }
+
+    public void TryJump()
+    {
+        if (_isGrounded)
         {
             Jump();
         }
@@ -40,4 +48,13 @@ public class JumpController : MonoBehaviour
     {
         _thrust = newStrength;
     }
+
+
+    public void OnJumpAttempt()
+    {
+        TryJump();
+    }
+
 }
+
+
