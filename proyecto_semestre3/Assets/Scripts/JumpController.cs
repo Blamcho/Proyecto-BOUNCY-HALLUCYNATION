@@ -2,12 +2,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class JumpController : MonoBehaviour
 {
-    
     [SerializeField] private Rigidbody _rigidbody = null;
     [SerializeField] private float _thrust = 10f;
     [SerializeField] private bool _isGrounded = true;
     public float JumpStrength => _thrust;
-
 
     void Start()
     {
@@ -49,12 +47,10 @@ public class JumpController : MonoBehaviour
         _thrust = newStrength;
     }
 
-
     public void OnJumpAttempt()
     {
         TryJump();
     }
-
 }
 
 

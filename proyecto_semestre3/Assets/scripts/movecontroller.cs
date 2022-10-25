@@ -5,7 +5,7 @@ public class MoveController : MonoBehaviour
 {
     [SerializeField] private float _velocity = 10f;
     [SerializeField] private float _imput = default;
-    private bool _isPressed;
+    private bool _isPressed = default;
     public float Velocity => _velocity;
 
     private void Start()

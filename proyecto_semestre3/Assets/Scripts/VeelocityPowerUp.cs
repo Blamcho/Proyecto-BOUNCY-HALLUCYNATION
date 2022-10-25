@@ -8,7 +8,6 @@ public class VeelocityPowerUp : MonoBehaviour
     [SerializeField] private float _resetTime = 5;
     [SerializeField] private MeshRenderer _powerUpVisuals = default;
     [SerializeField] private Collider _collider = null;
-
     private MoveController _moveController = null;
     private float _previousVelocity = default;
 
