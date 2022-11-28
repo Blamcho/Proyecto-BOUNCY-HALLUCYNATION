@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MoveController : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class MoveController : MonoBehaviour
     [SerializeField] private float _imput = default;
     private bool _isPressed = default;
     public float Velocity => _velocity;
+   
 
     private void Start()
     {
@@ -79,4 +81,5 @@ public class MoveController : MonoBehaviour
             return;
         }
     }
+
 }

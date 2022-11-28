@@ -3,29 +3,30 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    public Transform[] puntos;
+    public Transform[] _puntos;
     private int destpuntos = 0 ;
-    public  NavMeshAgent agent;
+    public  NavMeshAgent _agent;
 
     void Start()
     {
-        agent = GetComponent < NavMeshAgent > ();
-        agent.autoBraking = false;
+        _agent = GetComponent < NavMeshAgent > ();
+        _agent.autoBraking = false;
         GotoNextpuntos();
     }
 
     void GotoNextpuntos()
     {
-        if (puntos.Length == 0)
+        if (_puntos.Length == 0)
             return;
-        agent.destination = puntos[destpuntos].position;
-        destpuntos = (destpuntos + 1) % puntos.Length;
+        _agent.destination = _puntos[destpuntos].position;
+        destpuntos = (destpuntos + 1) % _puntos.Length;
     }
 
     private void Update()
     {
-        if (agent.remainingDistance < 0.5f)
+        if (_agent.remainingDistance < 0.5f)
             GotoNextpuntos();
     }
-
+     
 }
+
