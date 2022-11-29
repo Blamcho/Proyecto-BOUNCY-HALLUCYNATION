@@ -4,12 +4,12 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     public Transform[] _puntos;
-    private int destpuntos = 0 ;
-    public  NavMeshAgent _agent;
+    private int destpuntos = 0;
+    public NavMeshAgent _agent;
 
     void Start()
     {
-        _agent = GetComponent < NavMeshAgent > ();
+        _agent = GetComponent<NavMeshAgent>();
         _agent.autoBraking = false;
         GotoNextpuntos();
     }
@@ -27,6 +27,6 @@ public class EnemyController : MonoBehaviour
         if (_agent.remainingDistance < 0.5f)
             GotoNextpuntos();
     }
-     
+
 }
 

@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class score : MonoBehaviour
 {
     private int _score;
-    [SerializeField]  public TextMeshProUGUI _textscore;
+    [SerializeField] public TextMeshProUGUI _textscore = default;
     void Start()
     {
         _score = 0;
@@ -17,5 +16,5 @@ public class score : MonoBehaviour
             _score++;
         _textscore.text = "score " + _score;
     }
-    
+
 }
