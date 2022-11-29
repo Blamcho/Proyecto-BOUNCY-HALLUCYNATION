@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PowerUpJump : MonoBehaviour
 {
-    [SerializeField] private float _thrust = 20;
+    [SerializeField] private float _thrust = 5;
     [SerializeField] private float _resetTime = 5;
     [SerializeField] private MeshRenderer _powerUpVisuals = null;
     [SerializeField] private Collider _collider = null;
@@ -17,11 +17,9 @@ public class PowerUpJump : MonoBehaviour
 
         _collider.enabled = false;//Desactiva solamente el MeshRender
         _powerUpVisuals.enabled = false; 
-
         _jumpController = other.gameObject.GetComponent<JumpController>();
         _previousJumpStrength = _jumpController.JumpStrength;
         _jumpController.ChangeJumpStrength(_thrust);
-
         StartCoroutine(ResetPowerUp());
     }
 
@@ -32,7 +30,6 @@ public class PowerUpJump : MonoBehaviour
             yield return new WaitForSeconds(_resetTime);
             _jumpController.ChangeJumpStrength(_previousJumpStrength);
         }
-
-       
+  
     }
 }

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a26482325510baa43822808cee0712ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpStrength: 10
+  _thrust: 20
   _resetTime: 2
   _powerUpVisuals: {fileID: 7416627743840122566}
   _collider: {fileID: 7416627743004746523}
